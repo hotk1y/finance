@@ -1,0 +1,166 @@
+//====================================================================================================
+
+.header {
+	position: relative;
+	z-index: 100;
+	&__container {
+		position: relative;
+	}
+
+	&__body {
+		position: absolute;
+		width: 100%;
+		top: 0;
+		left: 0;
+		display: flex;
+		align-items: center;
+		height: 104px;
+		@media (max-width: $md3+px) {
+			height: 54px;
+		}
+	}
+
+	&__logo {
+		margin: 0px 127px 0px 0px;
+		@media (max-width: $md3+px) {
+			margin: 10px 0px 0px 10px;
+		}
+	}
+
+	&__link {
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 32 / 24 * 100%;
+		letter-spacing: 0.1px;
+		color: #252b42;
+		cursor: pointer;
+		padding: 5px;
+		transition: all 0.3s ease 0s;
+		@media (min-width: $md3+px) {
+			&:hover {
+				color: #ff7b47;
+				box-shadow: 0 0 5px #ff7b47;
+			}
+		}
+	}
+}
+.menu {
+	&__body {
+		@media (max-width: $md3+px) {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			overflow: auto;
+			transform: translate(0px, -100%);
+			background-color: rgba(222, 242, 241, 0.95);
+			transition: all 0.5s ease 0s;
+			padding: 50px 10px 30px 10px;
+			&._active {
+				transform: translate(0px, 0%);
+			}
+		}
+	}
+
+	&__list {
+		display: flex;
+		@media (max-width: $md3+px) {
+			display: block;
+			text-align: center;
+		}
+	}
+
+	&__item {
+		margin: 0px 5px;
+		@media (max-width: $md3+px) {
+			margin: 25px 0px;
+		}
+	}
+
+	&__link {
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 24px;
+		text-align: center;
+		letter-spacing: 0.2px;
+		color: #737373;
+		padding: 5px 0px;
+		margin: 0px 10px;
+		transition: color 0.3s ease 0s;
+		position: relative;
+		@media (min-width: $md3+px) {
+			&::before {
+				content: "";
+				position: absolute;
+				width: 0;
+				height: 2px;
+				left: 50%;
+				bottom: 0;
+				background-color: #ff7b47;
+				transition: all 0.3s ease 0s;
+			}
+			&:hover {
+				color: #ff7b47;
+				&::before {
+					content: "";
+					width: 100%;
+					left: 0;
+				}
+			}
+		}
+		@media (max-width: $md3+px) {
+			text-transform: uppercase;
+			font-weight: 700;
+			font-size: 24px;
+			line-height: 32 / 24 * 100%;
+			color: #17252a;
+		}
+	}
+}
+.icon-menu {
+	display: none;
+	@media (max-width: $md3+px) {
+		position: absolute;
+		display: block;
+		top: 24px;
+		right: 20px;
+		width: 30px;
+		height: 18px;
+		cursor: pointer;
+		z-index: 5;
+		span {
+			transition: all 0.3s ease 0s;
+			top: calc(50% - 1px);
+			left: 0px;
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background-color: #252b42;
+			&:first-child {
+				top: 0px;
+			}
+			&:last-child {
+				top: auto;
+				bottom: 0px;
+			}
+		}
+		&._active {
+			position: fixed;
+			span {
+				background-color: #252b42;
+				transform: scale(0);
+				&:first-child {
+					transform: rotate(-45deg);
+					top: calc(50% - 1px);
+				}
+				&:last-child {
+					transform: rotate(45deg);
+					bottom: calc(50% - 1px);
+				}
+			}
+		}
+	}
+}
+
+//====================================================================================================
